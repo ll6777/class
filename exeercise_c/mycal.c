@@ -42,7 +42,7 @@ int main(void)
 	}
 	for(i = 1 ; i < m ; i++)//加上输入月份之前天数
 	{	
-		sum = sum + daymonth(i, y);
+			sum = sum + daymonth(i, y);
 	}
 
 	//循环结束i == m 给m赋值

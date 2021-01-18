@@ -1,4 +1,4 @@
-/*
+/*   c语言50道练习题
 #include<stdio.h>
 
 
@@ -341,32 +341,20 @@ int main(void)
 //8.输入1~10之间的一个数字，输出它对应的英文单词。
 
 #include<stdio.h>
+#include<math.h>
 
 int main(void)
 {
-	int num;
+	int num,t;
+	char a[10] = {'a','b','c','d','e','f','g','h','i','j'};
 	printf("请输入1～10之间的一个数字：");
 	scanf("%d", &num);
-	if(num == 1)
-		printf("one");
-	else if(num ==2)
-		printf("two");
-	else if(num == 3)
-		printf("three");
-	else if(num == 4)
-		printf("four");
-	else if(num == 5)
-		printf("five");
-	else if(num == 6)
-		printf("six");
-	else if(num == 7)
-		printf("seven");
-	else if(num == 8)
-		printf("eight");
-	else if(num ==9)
-		printf("nine");
-	else if(num == 10)
-		printf("ten");
+	t = num -1;
+	printf("%c\n", a[t]);
+
+
+
+
 	printf("\n");
 	
 	return 0;
@@ -460,15 +448,33 @@ int main(void)
 	return 0;
 }
 */
-
+/*
 //22.输出n行由“#”组成的矩形，每行“#”的个数为m个，其中n、m由终端（键盘）输入。要求输出m个“#”功能由函数satr(m)函数实现。
+#include<stdio.h>
+
+int main(void)
+{
+	int n
 
 
-4511111
 
+	return 0;
+}
+*/
 
+//找100--2000之间的完全平方数
+#include<stdio.h>
 
+int main()
+{
+	int i,j;
+	for(i = 100; i < 2000 ; i++ )
+		for(j = 1 ; j < 45 ; j++)
+				if(j*j == i)
+					printf("完全平方数有%d   = %d * %d\n", i,j,j);
 
+	return 0;
+}
 
 
 

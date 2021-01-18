@@ -61,6 +61,9 @@ int main()
 	return 0;
 }
 */
+
+
+/*
   //键盘输入字符串，将小写转换为大写。
 #include<stdio.h>
 
@@ -79,8 +82,7 @@ int main()
 
 	return 0;
 }
-
-
+*/
 
 
 
