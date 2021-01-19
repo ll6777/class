@@ -284,7 +284,7 @@ int main(void)
 }
 */
 
-
+/*
 //3   打印菱形   如 读入4 行    输出4*4菱形
 
 #include<stdio.h>
@@ -318,9 +318,38 @@ int main(void)
 
 	return 0;
 }
+*/
+//菱形
+/*
+#include<stdio.h>
+
+int main(void)
+{
+	int row;
+	printf("请输入一个几行的菱形：");
+	scanf("%d", &row);
+	for(int i = 0 ; i < row ; i++)
+	{
+		for(int j = 0 ; j < row-i-1 ; j++ )
+				printf("  ");
+		for(int j = 0 ; j< 2*i+1 ; j++)
+				printf("* ");
+		printf("\n");
+	}
+
+	for(int l = row-2; l >= 0 ; l--)
+	{
+		for(int j = 0 ; j < row-l-1 ; j++)
+				printf("  ");
+		for(int j = 0 ; j < 2*l+1 ; j++)
+				printf("* ");
+		printf("\n");
+	}
 
 
-
+	return 0;
+}
+*/
 
 
 
@@ -348,6 +377,70 @@ int main(void)
 	return 0;
 }
 */
+/*
+//调用函数求2000以内完全平方数
+#include<stdio.h>
+
+int wqpfs(int  i );
+int main(void)
+{
+	int i,res,res1;
+	for(i = 0 ; i < 2000 ; i++)	
+	{
+		wqpfs(i);
+
+
+	}
+		
+	return 0;
+}
+
+
+int wqpfs(int  i )
+{
+		
+		for(int j = 0 ; j < 45 ; j++)
+				if((i+100) == j*j   )
+				{
+						for(int k = 0 ; k < 48  ;   k++)
+								if((i+268) == k*k  )
+										printf("%d i+100: %d   i+268: %d\n", i,i+100,i+268);
+				}
+}
+*/
+
+/*
+//判断所给数是否是完全平方数
+#include<stdio.h>
+
+int wqpfs(int  i );
+int main(void)
+{
+	int i;
+	scanf("%d", &i);
+	if(wqpfs(i))
+		printf("%d是一个完全平方数 \n", i);
+	else
+		printf("%d不是一个完全平方数 \n", i);
+
+	return 0;
+}
+
+
+int wqpfs(int  i )
+{
+		
+	for(int j = 0 ; j < 45 ; j++)
+	{
+		if(i == j*j)
+			return 1;
+	} 
+	return 0;			
+}
+*/
+
+
+
 
 
 /*
@@ -382,6 +475,62 @@ int main(void)
 }
 */
 
+/*
+//判断所给月份是多少天
+#include<stdio.h>
+
+
+int isLeap(int y);
+int dayOfMonth(int m ,int y );
+
+int main(void)
+{
+	int month, year;	
+
+	scanf("%d%d", &month, &year);
+
+	printf("%d年%d月有%d天\n", year, month, dayOfMonth(month, year));
+
+
+
+	return 0;
+}
+
+
+//
+int dayOfMonth(int m ,int y )
+{
+	switch (m) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			return 31;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			return 30;
+		case 2:
+			return 28+isLeap(y);
+		default:
+				return -1;
+	}
+}
+
+
+
+// 给定一个年份，判断是否为闰年
+int isLeap(int y)
+{
+	return y % 4 == 0 && y % 100 != 0 || y % 400 == 0;
+}
+*/
+
+
 
 /*
 // 键盘输入n    求n以内的完数
@@ -414,6 +563,54 @@ int main(void)
 	return 0;
 }
 */
+/*
+//完数   用函数调用
+#include<stdio.h>
+
+int wanshu(int num);
+
+int main(void)
+{
+	int res;
+	for(int i = 1 ;  i < 100 ; i++)
+	{
+		res = wanshu(i);
+		if(res)
+		{
+			printf("%d 这是一个完数\n", i);
+		}
+
+	}
+
+
+	return 0;
+}
+
+int wanshu(int num)
+{
+		int s = 0;
+
+		for (int i = 1; i < num; i++)
+				if (num % i == 0)
+						s += i;
+		if (s == num)
+				return 1;
+		else
+				return 0;
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
 /*
 //打印  乘法表
 
