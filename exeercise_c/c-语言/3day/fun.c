@@ -6,7 +6,7 @@
 例如68
 倒过来86
 68+86=154
-154+541=605
+154+451=605
 605+506=1111(回数)
 编程，输入任意整型数，按上述方法产生一个回数，为简单起见，最多计算7步，看是否能
 得到一个回数。
@@ -25,7 +25,7 @@ int  yanzheng(int a,int k);
 
 int main(void)
 {
-	int n,i,j = 0,k = 0;
+	int n,i,j = 0,k = 0,m = 0;
 	printf("请输入一个整形数： \n");
 	scanf("%d", &n);
 	
@@ -36,10 +36,13 @@ int main(void)
 		k = daoshu(j,k);
 		if(yanzheng(n,k)){
 			printf("%d 这是一个回数\n", n);	return 0;}
-		else
-			n = n + k;
+		else{
+			m = n + k;
+			printf("第 %d 次 : %d + %d = %d\n", i+1,n,k,m);
+			n = m;
+		}
 	}
-	printf("经过n次计算未得到回数\n");
+	printf("经过7次计算未得到回数\n");
 	
 	return 0;
 }
@@ -219,7 +222,6 @@ int main()
 
 
 
-
 //5. 求得两个整型数的最大公约数
 
 #include<stdio.h>
@@ -239,7 +241,10 @@ int main(void)
 }
 
 int yueshu(int a,int b)
-{
+{	
+	
+
+
 	for(int i = a ; i > 0 ; i--)
 	{
 		if(a % i == 0 && b % i == 0 )
