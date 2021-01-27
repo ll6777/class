@@ -462,7 +462,10 @@ int main(void)
 }
 */
 
-//找100--2000之间的完全平方数
+
+
+/*
+//16.   找100--2000之间的完全平方数
 #include<stdio.h>
 
 int main()
@@ -475,14 +478,28 @@ int main()
 
 	return 0;
 }
+*/
+
+
+
+/*
+//18. 输入一行字符  分别统计出其中英文字母  空格 数字 和  其他字符的个数 
+
+#include<studio.h>
+#include<stdlib.h>
+
+
+int main(void)
+{
+	int 
 
 
 
 
+	return 0;
+}
 
-
-
-
+*/
 
 
 

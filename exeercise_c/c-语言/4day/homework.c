@@ -22,9 +22,9 @@ int main(void)
 		printf("%d  ", a[i]);	
 	}
 	printf("\n");
-	for(i = 0 ; i < 9 ; i++)//从小到大排列
+	for(i = 0 ; i < 9 ; i++)//从小到大排列   冒泡排序循环n-1 趟 排序 
 	{
-		for(j=0;j< 9-i;j++)
+		for(j=0;j< 9-i;j++)     //每次比较n-i-1 次   
 		{
 				if(a[j]>a[j+1])
 				{
@@ -225,7 +225,7 @@ int main(void)
 
 //3. 模拟游戏：41个人编好号(1~41)围成一圈，从1号开始数数，数到3则退出游戏，下一个人再从1开始数....最后留下的那个人是几号
 
-
+/*
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -266,9 +266,44 @@ int main(void)
 	}
 	return 0;
 }
+*/
 
+//选择排序从小到大排列 
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
 
+int main(void)
+{
+	int a[10];
+	int	i,j,t;
 
+	srand(getpid());//按照进程号获取随机数
+	for(i = 0 ; i < 10 ; i++) //赋值
+	{
+		a[i] = rand() % 100;
+		printf("%d  ", a[i]);	
+	}
+	printf("\n");
+	for(i = 0 ; i < 9 ; i++)//从小到大排列   选择排序循环n 趟 排序 
+	{
+		for(j= i+1;j< 10;j++)     //每次拿着a[i] 和  a[j]  比较
+		{
+				if(a[i]>a[j])  //交换 
+				{
+						t=a[i];
+						a[i]=a[j];
+						a[j]=t;
+				}
+		}
+	}
+	printf("\n");
+	for(i = 0 ; i < 10 ; i++)//打印交换后的数组
+		printf("%d  ", a[i]);
+	printf("\n");
+
+	return 0;
+}
 
 
 
