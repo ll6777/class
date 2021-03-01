@@ -42,7 +42,7 @@ char *reverseString(const char *str)
 //<2>从动态数组中删除指定元素
 //<3>查找数组中的指定元素
 
-/*
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -90,10 +90,10 @@ int addyuansu(int *p ,int n )
 	
 	//int *p = (int*)malloc(size_t(sizeof))
 
-*/
 
 
 
+/*
 //四则运算 
 #include<stdio.h>
 #include<stdlib.h>
@@ -128,16 +128,70 @@ int main(int argc, char *argv[])
 	if(c == '-')
 		printf("%d-%d=%d\n",a,b,a-b);
 
-	if(c == '*')
+	if(c == 'x')
 		printf("%d*%d=%d\n",a,b,a*b);
 
 	if(c == '/')
 		printf("%d/%d=%d\n",a,b,a/b);
 }
 
+*/
 
 
 
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+void reverseString(char *p);
+void deleteSpaceString(char *p);
+void test(char *p, void (*f)(char *));
+int main(void)
+{
+	char str[] = "hello world boys";
+
+	test(str, reverseString);
+	printf("%s\n", str);
+
+	test(str, deleteSpaceString);
+	printf("%s\n", str);
+
+	return 0;
+}
+
+// 将给定的字符串逆序返回
+void reverseString(char *p)
+{
+	int i, j;
+	char ch;
+
+	for (i = 0, j = strlen(p)-1; i < j; i++, j--){
+		ch = p[i];
+		p[i] = p[j];
+		p[j] = ch;
+	}
+}
+
+// 将字符串的空格删除
+void deleteSpaceString(char *p)
+{
+	char *ret;
+	while (1) {
+		ret = strchr(p, ' ');
+		if (ret == NULL)
+			break;
+		strcpy(ret, ret+1);
+	}
+}
+
+// f-->函数指针
+void test(char *p, void (*f)(char *))
+{
+	f(p);
+}
 
 
 
