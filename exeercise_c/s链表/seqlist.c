@@ -15,8 +15,6 @@ seqlist_t *seqlistInit(int size)    //初始化顺序表
 
 	return s;
 }
-
-
 int seqlistInesert(seqlist_t *s, const void *data)   //增加新元素
 {
 	s->arr = realloc(s->arr,(s->nmemb+1)*s->size);
@@ -28,8 +26,6 @@ int seqlistInesert(seqlist_t *s, const void *data)   //增加新元素
 	return 0;
 }
 
-
-
 void seqlisTraval(const  seqlist_t *s, void(*pri)(const void *data))   //遍历
 {
 	for(int i =0 ; i < s->nmemb ; i++)
@@ -38,23 +34,61 @@ void seqlisTraval(const  seqlist_t *s, void(*pri)(const void *data))   //遍历
 
 	}
 
+}
 
+void *seqlistFind(const seqlist_t *s, const void *key,cmp_t cmp)    //查找
+{
+	for(int i = 0; i < s->nmemb; i++)
+	{
+		if(cmp((char *)s->arr +i * s->size, key) == 0)
+			return (char *)s->arr + i * s->size;
 
+	}
+	return NULL;
+}
 
+int seqlistDelete(seqlist_t *s, const void *key, cmp_t cmp)   //删除
+{
+	int i;
+	for( i = 0; i < s->nmemb; i++)
+	{
+		if(cmp((char *)s->arr +i * s->size, key) == 0)
+		{
+			memcpy((char *)s->arr + i * s->size,(char *)s->arr + (i+1)*s->size,(s->nmemb-i-1)*s->size );
+			break;
+		}
+	}
+	if(i == s->nmemb)
+=		return -1;
+	s->nmemb --;
+	s->arr = realloc(s->arr,s->nmemb * s->size);
 
+	return 1;
 }
 
 
+int seqlistUpdate(const seqlist_t *s, const void *key, cmp_t cmp, const void *newdata)   //修改
+{
+	int i;
+	for( i = 0; i < s->nmemb; i++)
+	{
+		if(cmp((char *)s->arr +i * s->size, key) == 0)
+		{
+			memcpy((char *)s->arr + i * s->size,(char *)newdata,s->size * sizeof(char) );
+			break;
+		}
+	}
+	if(i == s->nmemb)
+		return -1;
+	return 0;
+}
 
-
-
-
-
-
-
-
-
-
+void seqlistDestroy(seqlist_t *s)  //销毁
+{
+	free(s->arr);
+	free(s);
+	
+}
 
 
 
