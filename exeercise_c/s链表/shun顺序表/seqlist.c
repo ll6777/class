@@ -35,7 +35,15 @@ void seqlisTraval(const  seqlist_t *s, void(*pri)(const void *data))   //遍历
 	}
 
 }
-
+static int findIndex(const seqlist_t *s, const void *key, cmp_t cmp)
+{
+	for(int i = 0 ; i < s->nmemb ; i++)
+	{
+		if(cmp((char *)s->arr +i * s->size,key) == 0)
+			return i;
+	}
+	return -1;
+}
 void *seqlistFind(const seqlist_t *s, const void *key,cmp_t cmp)    //查找
 {
 	for(int i = 0; i < s->nmemb; i++)
@@ -59,7 +67,7 @@ int seqlistDelete(seqlist_t *s, const void *key, cmp_t cmp)   //删除
 		}
 	}
 	if(i == s->nmemb)
-=		return -1;
+		return -1;
 	s->nmemb --;
 	s->arr = realloc(s->arr,s->nmemb * s->size);
 
@@ -86,6 +94,7 @@ int seqlistUpdate(const seqlist_t *s, const void *key, cmp_t cmp, const void *ne
 void seqlistDestroy(seqlist_t *s)  //销毁
 {
 	free(s->arr);
+	s->arr = NULL;
 	free(s);
 	
 }
