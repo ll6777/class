@@ -3,7 +3,7 @@
 
 #include "queue.h"
 
-int queueInit(int size, int capcity, queue_t **q)
+int queueInit(int size, int capcity, queue_t **q)  //初始化
 {
 	*q = malloc(sizeof(queue_t));
 	if (NULL == *q)
@@ -21,17 +21,17 @@ int queueInit(int size, int capcity, queue_t **q)
 	return 0;
 }
 
-int queueEmpty(const queue_t *q)
+int queueEmpty(const queue_t *q)  //空
 {
 	return q->front == q->tail && q->flag == LASTDEQ;
 }
 
-int queueFull(const queue_t *q)
+int queueFull(const queue_t *q)  //满
 {
 	return q->front == q->tail && q->flag == LASTENQ;
 }
 
-int enq(queue_t *q, const void *data)
+int enq(queue_t *q, const void *data)  //入队
 {
 	if (queueFull(q))
 		return -1;
@@ -43,7 +43,7 @@ int enq(queue_t *q, const void *data)
 	return 0;
 }
 
-int deq(queue_t *q, void *data)
+int deq(queue_t *q, void *data)  //出队
 {
 	if (queueEmpty(q))
 		return -1;
@@ -55,7 +55,7 @@ int deq(queue_t *q, void *data)
 	return 0;
 } 
 
-void queueDestroy(queue_t *q)
+void queueDestroy(queue_t *q)  //销毁
 {
 	free(q->base);
 	free(q);
